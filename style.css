@@ -1227,13 +1227,13 @@ body {
     content: ' ';
 }
 
-.language_animate1::after {
+.language_animate1:after {
     border-right: 3px solid rgba(212, 219, 212, 0.5);
     -webkit-animation: abomination1 7.5s linear 1 forwards, blinkTextCursor 1000ms steps(15) infinite normal;
     animation: abomination1 7.5s linear 1 forwards, blinkTextCursor 1000ms steps(15) infinite normal;
 }
 
-.language_animate2::after {
+.language_animate2:after {
     border-right: 3px solid rgba(212, 219, 212, 0.5);
     -webkit-animation: abomination2 7.5s linear 1 forwards, blinkTextCursor 1000ms steps(15) infinite normal;
     animation: abomination2 7.5s linear 1 forwards, blinkTextCursor 1000ms steps(15) infinite normal;
