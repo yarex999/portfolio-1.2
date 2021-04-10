@@ -709,6 +709,13 @@ function tab3Close() {
     tabContent[2].style.height = 0;
 }
 
+let languageList=['Russian', 'English'];
+if(document.documentElement.clientWidth <= 1150){
+    for(let i =0; i<languageHeader.length; i++){
+        languageHeader[i].innerHTML = languageList[i];
+    }
+}
+
 
 // CONTROL PANEL animation
 
