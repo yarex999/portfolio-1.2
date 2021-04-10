@@ -429,7 +429,7 @@ function showProjectImg(num) {
 
             }
             showProjectDescription(num);
-        }, 2000);
+        }, 1500);
     } else {
         tab2Close();
     }
@@ -451,9 +451,9 @@ function showProjectDescription(num) {
             projectDescriptionTitle[num].classList.add('project_description_animation');
             setTimeout(() => {
                 projectDescriptionTitle[num].style.borderRight = 0;
-            }, 7500)
+            }, 4500)
             showProjectTechnologies(num);
-        }, 2000)
+        }, 1500)
     } else {
         tab2Close();
     }
@@ -465,7 +465,7 @@ function showProjectTechnologies(num) {
             projectTechnologyOuter[num].style.width = 100 + "%";
             projectTechnologyTitle[num].classList.add('project_technologies_animation');
             showProjectButtons(num)
-        }, 2000)
+        }, 1500)
     } else {
         tab2Close();
     }
