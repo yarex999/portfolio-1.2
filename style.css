@@ -1221,6 +1221,7 @@ body {
 
 .language h5 {
     padding: 0 1vh;
+    margin: 1vh 0 0;
     color: rgba(0, 0, 0, 0.5);
     text-shadow: 1px 1px rgb(255 255 255 / 15%);
 }
