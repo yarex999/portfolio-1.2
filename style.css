@@ -3033,7 +3033,7 @@ body {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     }
-    .card_info{
+    .content {
         box-shadow: 0;
     }
     .card_resume button {
