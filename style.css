@@ -3033,6 +3033,9 @@ body {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     }
+    .card_info{
+        box-shadow: 0;
+    }
     .card_resume button {
         height: 10vh;
     }
