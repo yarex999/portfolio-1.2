@@ -28,7 +28,7 @@ let skillTitles = document.querySelectorAll('.skill_img_title');
 let chartCircles = document.querySelectorAll('.chart_circle');
 let chartPercentages = document.querySelectorAll('.skill_chart_percentage');
 let skillDescriptions = document.querySelectorAll('.skill_description_inner');
-let percentage = [80, 75, 70, 65, 45, 35, 90];
+let percentage = [80, 75, 70, 65, 50, 25, 20, 45, 35, 90];
 
 
 // project`s tab components
