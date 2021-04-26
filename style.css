@@ -550,6 +550,13 @@ body {
     -webkit-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
+
+    border-style: solid;
+    border-width: 0px 24px 0px 24px;
+    -moz-border-image: url(80-806020_photo-black-chain-scrapbook-frame-transparent-1600-portable.png) 5 96 5 96 repeat repeat;
+    -webkit-border-image: url(80-806020_photo-black-chain-scrapbook-frame-transparent-1600-portable.png) 5 96 5 96 repeat repeat;
+    -o-border-image: url(80-806020_photo-black-chain-scrapbook-frame-transparent-1600-portable.png) 5 96 5 96 repeat repeat;
+    border-image: url(80-806020_photo-black-chain-scrapbook-frame-transparent-1600-portable.png) 5 96 5 96 repeat repeat;
 }
 
 
