@@ -633,7 +633,9 @@ body {
 
 .skill_img_title {
     opacity: 0;
-    margin: 1.5vmin 0;
+    margin: 1.5vmax 0;
+    line-height: 1.4;
+    /* font-size: 1vw; */
     -webkit-transition: all linear 1s;
     -o-transition: all linear 1s;
     transition: all linear 1s;
@@ -1006,7 +1008,7 @@ body {
     opacity: 0;
     text-transform: uppercase;
     letter-spacing: 0.15vw;
-    font-size: 1vw;
+    font-size: .8vw;
     border-right: 2px solid rgba(255, 255, 255, 0.822);
     padding: 0 0.5vw;
     -webkit-transition: opacity 1s ease 1.5s;
@@ -1173,17 +1175,17 @@ body {
 .personal_title p,
 .personal_content p {
     opacity: 0;
-    margin: .5vh 1vw;
-    font-size: 10px;
-    line-height: 12px;
+    margin: .5vh .5vw;
+    line-height: 1.5;
+    font-size: 12px;
     overflow: hidden;
 }
 
 .personal_title_animation p {
     opacity: 1;
     border-right: 2px solid rgba(139, 127, 127, 0.589);
-    -webkit-animation: typewriter 2s steps(12) 1s 1 normal both, blinkTextCursor 1000ms steps(12) infinite normal;
-    animation: typewriter 2s steps(12) 1s 1 normal both, blinkTextCursor 1000ms steps(12) infinite normal;
+    -webkit-animation: typewriter 1s steps(12) 0s 1 normal both, blinkTextCursor 1000ms steps(12) infinite normal;
+    animation: typewriter 1s steps(12) 0s 1 normal both, blinkTextCursor 1000ms steps(12) infinite normal;
 }
 
 .personal_content {
@@ -1201,8 +1203,8 @@ body {
 .personal_content_animation p {
     opacity: 1;
     border-right: 2px solid rgba(134, 125, 125, 0.404);
-    -webkit-animation: typewriter 2s steps(15) 1s 1 normal both, blinkTextCursor 1000ms steps(15) infinite normal;
-    animation: typewriter 2s steps(15) 1s 1 normal both, blinkTextCursor 1000ms steps(15) infinite normal;
+    -webkit-animation: typewriter 1s steps(15) 0s 1 normal both, blinkTextCursor 1000ms steps(15) infinite normal;
+    animation: typewriter 1s steps(15) 0s 1 normal both, blinkTextCursor 1000ms steps(15) infinite normal;
 }
 
 .personal_title i {
@@ -2938,6 +2940,12 @@ body {
 
 /* NEDIA QUERIES */
 
+@media(min-width: 1151px){
+    .skill_img_title{
+        font-size: 1vw;
+    }
+}
+
 @media(max-width: 1150px) {
     /* card */
     .card {
@@ -3108,11 +3116,14 @@ body {
     .project_description_inner,
     .project_header_inner {
         font-size: 10px;
+        
     }
     .personal_title p,
     .personal_title i,
     .personal_content p {
-        font-size: 10px;
+        font-size: 8px;
+        margin: 1vh 1.5vw;
+        letter-spacing: 1px;
     }
     .language_level_title {
         font-size: 10px;

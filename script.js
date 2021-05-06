@@ -90,6 +90,7 @@ function showMain() {
 // START of everything
 document.addEventListener('DOMContentLoaded', function() {
     showCard()
+    // switch off card animation for refactoring / debugging body part
         // showMain()
 })
 
@@ -429,7 +430,7 @@ function showProjectImg(num) {
 
             }
             showProjectDescription(num);
-        }, 1500);
+        }, 1100);
     } else {
         tab2Close();
     }
@@ -451,9 +452,9 @@ function showProjectDescription(num) {
             projectDescriptionTitle[num].classList.add('project_description_animation');
             setTimeout(() => {
                 projectDescriptionTitle[num].style.borderRight = 0;
-            }, 4500)
+            }, 2000)
             showProjectTechnologies(num);
-        }, 1500)
+        }, 1000)
     } else {
         tab2Close();
     }
@@ -465,7 +466,7 @@ function showProjectTechnologies(num) {
             projectTechnologyOuter[num].style.width = 100 + "%";
             projectTechnologyTitle[num].classList.add('project_technologies_animation');
             showProjectButtons(num)
-        }, 1500)
+        }, 1000)
     } else {
         tab2Close();
     }
@@ -568,7 +569,7 @@ function tab3() {
     for (let i = 0; i < personalInfo.length; i++) {
         if (checkOpenLink(personalInfo[i])) {
             if (isPartiallyVisible(personalInfo[i])) {
-                setTimeout(() => { showPersonalIcon(i) }, i * 6500)
+                setTimeout(() => { showPersonalIcon(i) }, i * 5000)
             }
         } else {
             tab3Close();
@@ -580,7 +581,7 @@ function tab3() {
             if (isPartiallyVisible(language[j])) {
                 setTimeout(() => {
                     showLanguageTitle(j);
-                }, j * 3000)
+                }, j * 1500)
 
             }
         } else {
@@ -613,9 +614,9 @@ function showPersonalTitle(num) {
             showPersonalContent(num);
             setTimeout(() => {
                 personalTitle[num].children[1].style.borderRight = 0;
-            }, 3000)
+            }, 1500)
 
-        }, 2000);
+        }, 1500);
     } else {
         tab3Close();
     }
@@ -634,8 +635,8 @@ function showPersonalContent(num) {
             personalContent[num].classList.add('personal_content_animation');
             setTimeout(() => {
                 personalContent[num].children[0].style.borderRight = 0;
-            }, 3000)
-        }, 3000)
+            }, 1500)
+        }, 1500)
     } else {
         tab3Close();
     }
@@ -752,7 +753,7 @@ function moveUp() {
 function moveDown() {
     window.scroll({
         left: 0,
-        top: document.body.getBoundingClientRect().bottom,
+        top: document.body.scrollHeight,
         behavior: 'smooth'
     })
 }
