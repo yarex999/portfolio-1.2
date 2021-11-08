@@ -31,7 +31,7 @@ let skillTitles = document.querySelectorAll('.skill_img_title');
 const chartBar = document.querySelectorAll('.barChart_inner');
 let chartPercentages = document.querySelectorAll('.skill_chart_percentage');
 let skillDescriptions = document.querySelectorAll('.skill_description_inner');
-let percentage = [80, 75, 70, 60, 65, 50, 55, 65, 40, 25, 60, 20, 45, 35, 90];
+let percentage = [80, 75, 70, 60, 65, 50, 55, 65, 40, 45, 45,  60, 20, 45, 35, 90];
 
 
 // project`s tab components
@@ -366,8 +366,7 @@ function tab1() {
                 }
                 showSkillDescription(i)
                 gsap.to('.offer_text',{
-                    duration: 7,
-
+                    duration: 5,
                     text: {
                         value: "Highly motivated front-end developer able to build responsible user-friendly websites and web apps using mobile-first approach. Eager to become a full-stack developer.",
                         delimiter: ''
