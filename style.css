@@ -3221,6 +3221,7 @@ body {
     }
     .personal_inner{
         padding: 5px;
+        margin: 1vh 0;
     }
     .personal_content p{
         text-align: right;
