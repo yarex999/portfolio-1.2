@@ -1,3 +1,4 @@
+
 // card`s components
 let card = document.querySelector('.card');
 let cardContacts = document.querySelector('#cardContacts');
@@ -9,11 +10,12 @@ let cardNickNameInner = document.querySelector('#cardNickNameInner');
 let cardOccupation = document.querySelector('#cardOccupation');
 let cardOccupationInner = document.querySelector('#cardOccupationInner');
 let cardOccupationTitle = document.querySelector('#cardOccupationTitle');
-let cardLevel = document.querySelector('#cardLevel');
-let cardLevelTitle = document.querySelector('#cardLevelTitle');
-let cardStatus = document.querySelector('#cardStatus');
-let cardStatusTitle = document.querySelector('#cardStatusTitle');
-let cardStatusIcon = document.querySelector('#cardStatusIcon');
+const cardInner = document.querySelector('.card_info')
+// let cardLevel = document.querySelector('#cardLevel');
+// let cardLevelTitle = document.querySelector('#cardLevelTitle');
+// let cardStatus = document.querySelector('#cardStatus');
+// let cardStatusTitle = document.querySelector('#cardStatusTitle');
+// let cardStatusIcon = document.querySelector('#cardStatusIcon');
 let cardResume = document.querySelector('#cardResume');
 
 // general content`s components
@@ -76,6 +78,7 @@ let downButton = document.querySelector('#down');
 
 
 
+
 // function to faster the animation (for comfortabel programming)
 function showMain() {
     content.style.filter = "blur(0)";
@@ -88,10 +91,10 @@ function showMain() {
 
 
 // START of everything
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     showCard()
     // switch off card animation for refactoring / debugging body part
-        // showMain()
+    // showMain()
 })
 
 
@@ -115,48 +118,76 @@ function showCardAvatar() {
 
 function showCardObjects() {
     setTimeout(() => {
-        cardNickName.classList.remove('invisible');
-        cardLevel.classList.remove('invisible');
-        cardStatus.classList.remove('invisible');
-        cardOccupation.classList.remove('invisible');
-        cardOccupationInner.classList.remove('invisible');
+        setTimeout(() => {
+            cardNickName.classList.remove('invisible'); showCardNickName();
+        }, 1500)
+
+        // cardLevel.classList.remove('invisible');
+        // cardStatus.classList.remove('invisible');
+
         cardInfo.style.height = cardInfo.scrollHeight + 'px';
-        showCardNickName();
+
+
 
     }, 5000);
 }
 
 function showCardNickName() {
-    cardNickNameInner.classList.add('nickname_animation');
-    showCardOccupation();
+    // cardNickNameInner.classList.add('nickname_animation');
+    gsap.to("#cardNickNameInner", {
+        duration: 2,
+        delay: 1,
+        text: 'Yaroslav'
+    })
+    gsap.to("#cardNickNameInner", {
+        duration: 1,
+        delay: 3,
+        text: ''
+    })
+    gsap.to("#cardNickNameInner", {
+        duration: 2,
+        delay: 4,
+        text: 'Yarex'
+    })
+    setTimeout(() => {
+        cardOccupation.classList.remove('invisible');
+        cardOccupationInner.classList.remove('invisible');
+        setTimeout(() => { showCardOccupation() }, 1500)
+    }, 5000)
 }
 
 function showCardOccupation() {
 
-    cardOccupationInner.style.width = 100 + "%";
-    cardOccupationTitle.classList.add('occupation_animation');
-    showCardLevel();
+
+    setTimeout(() => {
+        cardOccupationInner.style.width = 100 + "%";
+        cardOccupationTitle.classList.add('occupation_animation');
+    }, 1000)
+    setTimeout(() => { showCardMenu() }, 1500)
+
+    cardInner.style.padding = '3vh 0 0vh'
+    cardInfo.style.height = cardInfo.scrollHeight + 'px';
     setTimeout(() => {
         cardOccupationTitle.style.border = 'none'
     }, 13000);
 }
 
-function showCardLevel() {
-    setTimeout(() => {
-        cardLevelTitle.classList.add('level_animation');
-        showCardStatus();
-    }, 3000);
-}
+// function showCardLevel() {
+//     setTimeout(() => {
+//         cardLevelTitle.classList.add('level_animation');
+//         showCardStatus();
+//     }, 3000);
+// }
 
-function showCardStatus() {
-    setTimeout(() => {
+// function showCardStatus() {
+//     setTimeout(() => {
 
-        cardStatus.style.width = 90 + '%';
-        cardStatusTitle.classList.add('status_animation');
-        cardStatusIcon.classList.add('icon_animation');
-        showCardMenu();
-    }, 1000);
-}
+//         cardStatus.style.width = 90 + '%';
+//         cardStatusTitle.classList.add('status_animation');
+//         cardStatusIcon.classList.add('icon_animation');
+//         showCardMenu();
+//     }, 1000);
+// }
 
 function showCardMenu() {
     setTimeout(() => {
@@ -201,7 +232,7 @@ function moveCardToLeft() {
 
 // GENERAL TABS animation
 for (let i = 0; i < menuButtons.length; i++) {
-    menuButtons[i].addEventListener('click', function(e) {
+    menuButtons[i].addEventListener('click', function (e) {
         e.preventDefault();
         showHideTab(this, i);
     })
@@ -238,6 +269,7 @@ function moveCheckedTabs() {
 }
 
 function showHideTab(link, num) {
+    link.classList.add('disabled')
     link.classList.toggle('select');
     if (link.classList.contains('select')) {
         moveCheckedTabs()
@@ -254,6 +286,7 @@ function showHideTab(link, num) {
 function addTabAnimation(link, num) {
     setTimeout(() => {
         link.nextElementSibling.style.height = link.nextElementSibling.scrollHeight + 'px';
+
         switch (num) {
             case 0:
                 window.addEventListener('scroll', tab1);
@@ -268,6 +301,7 @@ function addTabAnimation(link, num) {
                 tab3();
                 break;
         }
+        link.classList.remove('disabled')
     }, 1500);
 }
 
@@ -484,7 +518,7 @@ function showProjectButtons(num) {
 }
 
 // animation for switching types of projects
-trainingButton.addEventListener('click', function() {
+trainingButton.addEventListener('click', function () {
 
     commercialButton.checked = false;
     commercialProjects.style.display = 'none';
@@ -710,9 +744,9 @@ function tab3Close() {
     tabContent[2].style.height = 0;
 }
 
-let languageList=['Russian', 'English'];
-if(document.documentElement.clientWidth <= 1150){
-    for(let i =0; i<languageHeader.length; i++){
+let languageList = ['Russian', 'English'];
+if (document.documentElement.clientWidth <= 1150) {
+    for (let i = 0; i < languageHeader.length; i++) {
         languageHeader[i].innerHTML = languageList[i];
     }
 }

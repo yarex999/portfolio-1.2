@@ -31,7 +31,8 @@ body {
 
  :root {
     --button-height: 3rem;
-    --color-text: rgba(0, 0, 0, .25);
+    /* --color-text: rgba(0, 0, 0, .25); */
+    --color-text: rgba(255, 255, 255, .8);
     --color-text-shadow: rgba(255, 255, 255, .15);
     --color-page-bg: #B9B5AA;
     --color-bg: #899095;
@@ -41,6 +42,8 @@ body {
     --color-overlay-medium: rgba(0, 0, 0, .1);
     --color-overlay-dark: rgba(0, 0, 0, .2);
     --color-tab-focus: rgba(255, 255, 255, .15);
+    --main-font: 'Red Hat Mono', monospace;
+    --header-font: 'Press Start 2P';
 }
 
 .button {
@@ -289,10 +292,10 @@ body {
 
 .nickname_inner {
     margin-top: 1.5vh;
-    margin-bottom: 0.5vh;
-    font-size: 2.8vw;
+    margin-bottom: 0vh;
+    font-size: 3vw;
     width: 100%;
-    opacity: 0;
+    /* opacity: 0; */
     -webkit-transition: all .5s ease 1s;
     -o-transition: all .5s ease 1s;
     transition: all .5s ease 1s;
@@ -335,7 +338,7 @@ body {
     background-color: #3b3936d2;
     box-shadow: -1px -1px 1px var(--color-bg-light), inset -1px -1px 1px var(--color-bg-dark);
     color: white;
-    margin: 1vh 0 0;
+    margin: 0vh 0 0;
     padding: 0 .5vw;
     -webkit-transition: opacity 2s ease 1s, width 1s ease-in-out 2s;
     -o-transition: opacity 2s ease 1s, width 1s ease-in-out 2s;
@@ -537,6 +540,9 @@ body {
     --color-bg-light: #3981CA;
     --color-bg-dark: #004EAD;
     color: #f1e4e4;
+}
+#content>a.select.disabled {
+    pointer-events: none;
 }
 
 .tab_content {
