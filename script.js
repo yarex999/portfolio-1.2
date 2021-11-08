@@ -27,7 +27,8 @@ let tabContent = document.querySelectorAll('.tab_content');
 let skills = document.querySelectorAll('.skill');
 let skillImages = document.querySelectorAll('.skill_img_inner');
 let skillTitles = document.querySelectorAll('.skill_img_title');
-let chartCircles = document.querySelectorAll('.chart_circle');
+// let chartCircles = document.querySelectorAll('.chart_circle');
+const chartBar = document.querySelectorAll('.barChart_inner');
 let chartPercentages = document.querySelectorAll('.skill_chart_percentage');
 let skillDescriptions = document.querySelectorAll('.skill_description_inner');
 let percentage = [80, 75, 70, 65, 50, 25, 60, 20, 45, 35, 90];
@@ -35,7 +36,7 @@ let percentage = [80, 75, 70, 65, 50, 25, 60, 20, 45, 35, 90];
 
 // project`s tab components
 let projects = document.querySelectorAll('.project');
-let projectsNames = document.querySelectorAll('.project_header_inner');
+// let projectsNames = document.querySelectorAll('.project_header_inner');
 let projectsImges = document.querySelectorAll('.project_img_inner');
 let projectSlider = document.querySelectorAll('.project_slider');
 let projectSliderImg = document.querySelectorAll('.project_slider img');
@@ -45,9 +46,9 @@ let projectDescriptionTitle = document.querySelectorAll('.project_description_in
 let projectTechnologyOuter = document.querySelectorAll('.project_technologies');
 let projectTechnologyTitle = document.querySelectorAll('.project_technologies_inner');
 let projectButtons = document.querySelectorAll('.project_buttons');
-let trainingButton = document.querySelector('#training');
-let commercialButton = document.querySelector('#commercial');
-let commercialProjects = document.querySelector('.commercial');
+// let trainingButton = document.querySelector('#training');
+// let commercialButton = document.querySelector('#commercial');
+// let commercialProjects = document.querySelector('.commercial');
 let trainingProjects = document.querySelector('.project_cards');
 
 
@@ -84,7 +85,7 @@ function showMain() {
     content.style.filter = "blur(0)";
     content.style.margin = 0;
     card.style.display = 'none';
-    showHideTab(menuButtons[0], 0);
+    showHideTab(menuButtons[1], 1);
 }
 
 
@@ -311,7 +312,7 @@ function deleteTabAnimation(link, num) {
         case 0:
             window.removeEventListener('scroll', tab1);
             setTimeout(() => {
-                tab1Close();
+                // tab1Close();
             }, 1500)
             break;
         case 1:
@@ -359,14 +360,30 @@ function tab1() {
         if (checkOpenLink(skills[0])) {
             if (isPartiallyVisible(skills[i])) {
                 showSkillImg(i);
-                showImgSkillTitle(i);
+                // showImgSkillTitle(i);
                 if (parseInt(chartPercentages[i].innerHTML) == 0) {
                     showSkillChartPercentage(i);
                 }
                 showSkillDescription(i)
+                gsap.to('.offer_text',{
+                    duration: 7,
+
+                    text: {
+                        value: "Highly motivated front-end developer able to build responsible user-friendly websites and web apps using mobile-first approach. Eager to become a full-stack developer.",
+                        delimiter: ''
+                    },
+                    delay: 0.5
+                })
+                gsap.to('.offer_title',{
+                    text: 'why me?',
+                    duration: 3,
+                    delay: 1
+                })
+                
+
             }
         } else {
-            tab1Close();
+            // tab1Close();
         }
     }
 }
@@ -375,7 +392,7 @@ function showSkillImg(num) {
     if (checkOpenLink(skills[0])) {
         skillImages[num].classList.add('skill_img_animation');
     } else {
-        tab1Close();
+        // tab1Close();
     }
 }
 
@@ -383,7 +400,7 @@ function showImgSkillTitle(num) {
     if (checkOpenLink(skills[0])) {
         skillTitles[num].classList.add('skill_img_title_animation');
     } else {
-        tab1Close();
+        // tab1Close();
     }
 }
 
@@ -392,34 +409,38 @@ function showSkillChartPercentage(num) {
         if (parseInt(chartPercentages[num].innerHTML) < percentage[num]) {
             chartPercentages[num].innerHTML = parseInt(chartPercentages[num].innerHTML) + 1 + '%';
             let counter = parseInt(chartPercentages[num].innerHTML);
-            let dashArray = Math.floor((150 * counter) / 100);
-            chartCircles[num].setAttribute('stroke-dasharray', `${dashArray}, 150`);
+            // let dashArray = Math.floor((150 * counter) / 100);
+            // chartCircles[num].setAttribute('stroke-dasharray', `${dashArray}, 150`);
+            if(chartBar[num]){
+                chartBar[num].style.width = counter + '%'
+            }
+            
             setTimeout(() => {
                 showSkillChartPercentage(num)
             }, 50)
         }
     } else {
-        tab1Close();
+        // tab1Close();
     }
 
 }
 
 function showSkillDescription(num) {
     if (checkOpenLink(skills[0])) {
-        // skillDescriptions[num].style.width = 100 + '%';
+        skillDescriptions[num].style.width = 100 + '%';
         skillDescriptions[num].classList.add('skill_description_inner_animation');
     } else {
-        tab1Close();
+        // tab1Close();
     }
 }
 
 // close SKILLS tab
 function tab1Close() {
-    Array.from(skillImages).forEach(elem => elem.classList.remove('skill_img_animation'));
-    Array.from(skillTitles).forEach(elem => elem.classList.remove('skill_img_title_animation'));
-    Array.from(chartCircles).forEach(elem => elem.setAttribute('stroke-dasharray', '0, 150'));
-    Array.from(chartPercentages).forEach(elem => elem.innerHTML = 0);
-    Array.from(skillDescriptions).forEach(elem => elem.classList.remove('skill_description_inner_animation'));
+    // Array.from(skillImages).forEach(elem => elem.classList.remove('skill_img_animation'));
+    // Array.from(skillTitles).forEach(elem => elem.classList.remove('skill_img_title_animation'));
+    // Array.from(chartCircles).forEach(elem => elem.setAttribute('stroke-dasharray', '0, 150'));
+    // Array.from(chartPercentages).forEach(elem => elem.innerHTML = 0);
+    // Array.from(skillDescriptions).forEach(elem => elem.classList.remove('skill_description_inner_animation'));
 }
 
 
@@ -446,7 +467,7 @@ function showProjectCard(num) {
 function showProjectName(num) {
     if (checkOpenLink(projects[0])) {
         setTimeout(() => {
-            projectsNames[num].classList.add('project_header_animation');
+            // projectsNames[num].classList.add('project_header_animation');
             showProjectImg(num);
         }, 1000)
     } else {
@@ -498,7 +519,14 @@ function showProjectTechnologies(num) {
     if (checkOpenLink(projects[0])) {
         setTimeout(() => {
             projectTechnologyOuter[num].style.width = 100 + "%";
-            projectTechnologyTitle[num].classList.add('project_technologies_animation');
+            //    projectTechnologyTitle[num].classList.add('project_technologies_animation');
+            gsap.to( projectTechnologyTitle[num],{
+                width: 100 + '%',
+                delay: 3,
+                duration: 1,
+            }) 
+            
+        
             showProjectButtons(num)
         }, 1000)
     } else {
@@ -518,79 +546,79 @@ function showProjectButtons(num) {
 }
 
 // animation for switching types of projects
-trainingButton.addEventListener('click', function () {
+// trainingButton.addEventListener('click', function () {
 
-    commercialButton.checked = false;
-    commercialProjects.style.display = 'none';
-    trainingButton.disabled = true;
-    commercialButton.disabled = false;
-    menuButtons[1].classList.toggle('select')
-
-
-
-    deleteTabAnimation(menuButtons[1], 1);
-    setTimeout(() => {
-
-        tabContent[1].style.height = tabContent[1].scrollHeight + 'px';
-        trainingProjects.style.display = 'flex';
-        tabContent[1].style.height = tabContent[1].scrollHeight + 'px';
-        menuButtons[1].classList.toggle('select')
-        addTabAnimation(menuButtons[1], 1);
-
-    }, 3000)
-
-});
-
-commercialButton.addEventListener('click', switchToCommercial)
-
-function switchToCommercial() {
-
-    trainingButton.checked = false;
-    trainingProjects.style.display = 'none';
-    commercialButton.disabled = true;
-    trainingButton.disabled = false;
-    menuButtons[1].classList.toggle('select');
+//     commercialButton.checked = false;
+//     commercialProjects.style.display = 'none';
+//     trainingButton.disabled = true;
+//     commercialButton.disabled = false;
+//     menuButtons[1].classList.toggle('select')
 
 
 
+//     deleteTabAnimation(menuButtons[1], 1);
+//     setTimeout(() => {
 
-    deleteTabAnimation(menuButtons[1], 1);
-    setTimeout(() => {
+//         tabContent[1].style.height = tabContent[1].scrollHeight + 'px';
+//         trainingProjects.style.display = 'flex';
+//         tabContent[1].style.height = tabContent[1].scrollHeight + 'px';
+//         menuButtons[1].classList.toggle('select')
+//         addTabAnimation(menuButtons[1], 1);
 
-        tabContent[1].style.height = tabContent[1].scrollHeight + 'px';
-        commercialProjects.style.display = 'flex';
-        tabContent[1].style.height = tabContent[1].scrollHeight + 'px';
-        menuButtons[1].classList.toggle('select');
-        addTabAnimation(menuButtons[1], 1);
+//     }, 3000)
+
+// });
+
+// commercialButton.addEventListener('click', switchToCommercial)
+
+// function switchToCommercial() {
+
+//     trainingButton.checked = false;
+//     trainingProjects.style.display = 'none';
+//     commercialButton.disabled = true;
+//     trainingButton.disabled = false;
+//     menuButtons[1].classList.toggle('select');
 
 
-    }, 3000)
 
-}
+
+//     deleteTabAnimation(menuButtons[1], 1);
+//     setTimeout(() => {
+
+//         tabContent[1].style.height = tabContent[1].scrollHeight + 'px';
+//         commercialProjects.style.display = 'flex';
+//         tabContent[1].style.height = tabContent[1].scrollHeight + 'px';
+//         menuButtons[1].classList.toggle('select');
+//         addTabAnimation(menuButtons[1], 1);
+
+
+//     }, 3000)
+
+// }
 
 
 
 // close PROJECT tab
 function tab2Close() {
 
-    Array.from(projectsImges).forEach(elem => elem.classList.remove('project_img_animation'));
+    // Array.from(projectsImges).forEach(elem => elem.classList.remove('project_img_animation'));
 
 
 
 
-    Array.from(projectButtons).forEach(elem => {
-        Array.from(elem.children).forEach(el => el.classList.remove('project_button_animation'));
-    });
-    Array.from(projectTechnologyTitle).forEach(elem => elem.classList.remove('project_technologies_animation'));
-    Array.from(projectTechnologyOuter).forEach(elem => elem.style.width = 1 + '%');
-    Array.from(projectDescriptionTitle).forEach(elem => elem.style.borderRight = '2px solid rgba(255, 255, 255, 0.822)');
-    Array.from(projectDescriptionTitle).forEach(elem => elem.classList.remove('project_description_animation'));
-    Array.from(projectDescriptionInner).forEach(elem => elem.style.width = 0);
-    Array.from(projectDescriptionOuters).forEach(elem => elem.style.opacity = 0);
+    // Array.from(projectButtons).forEach(elem => {
+    //     Array.from(elem.children).forEach(el => el.classList.remove('project_button_animation'));
+    // });
+    // Array.from(projectTechnologyTitle).forEach(elem => elem.classList.remove('project_technologies_animation'));
+    // Array.from(projectTechnologyOuter).forEach(elem => elem.style.width = 1 + '%');
+    // Array.from(projectDescriptionTitle).forEach(elem => elem.style.borderRight = '2px solid rgba(255, 255, 255, 0.822)');
+    // Array.from(projectDescriptionTitle).forEach(elem => elem.classList.remove('project_description_animation'));
+    // Array.from(projectDescriptionInner).forEach(elem => elem.style.width = 0);
+    // Array.from(projectDescriptionOuters).forEach(elem => elem.style.opacity = 0);
 
-    Array.from(projectsNames).forEach(elem => elem.classList.remove('project_header_animation'));
-    Array.from(projects).forEach(elem => elem.classList.remove('project_animation'));
-    arrCountTab2 = [];
+    // // Array.from(projectsNames).forEach(elem => elem.classList.remove('project_header_animation'));
+    // Array.from(projects).forEach(elem => elem.classList.remove('project_animation'));
+    // arrCountTab2 = [];
 
 }
 
@@ -720,28 +748,28 @@ function showLanguageLevelTitle(num) {
 
 
 function showLanguageLevelOuter(num) {
-    if (checkOpenLink(personalInfo[0])) {
+    // if (checkOpenLink(personalInfo[0])) {
         languageLevelBarOuter[num].style.width = 100 + '%';
         setTimeout(() => {
             if (parseInt(languagePercentage[num].innerHTML) == 0) {
                 showLanguageLevel(num);
             }
         }, 1500)
-    } else {
-        tab3Close();
-    }
+    // } else {
+    //     tab3Close();
+    // }
 }
 
 function tab3Close() {
-    Array.from(personalIcon).forEach(elem => elem.classList.remove('personal_title_i_animation'));
-    Array.from(personalTitle).forEach(elem => elem.classList.remove('personal_title_animation'));
-    Array.from(personalContent).forEach(elem => elem.classList.remove('personal_content_animation'));
-    Array.from(languagePercentage).forEach(elem => elem.innerHTML = 0 + '%');
-    Array.from(languageLevelBar).forEach(elem => elem.style.width = 0);
-    Array.from(languageLevelBarOuter).forEach(elem => elem.style.width = 0);
-    Array.from(languageHeader).forEach(elem => elem.className = 'language_header');
-    Array.from(languageLevelTitle).forEach(elem => elem.classList.remove('language_level_title_animation'));
-    tabContent[2].style.height = 0;
+    // Array.from(personalIcon).forEach(elem => elem.classList.remove('personal_title_i_animation'));
+    // Array.from(personalTitle).forEach(elem => elem.classList.remove('personal_title_animation'));
+    // Array.from(personalContent).forEach(elem => elem.classList.remove('personal_content_animation'));
+    // Array.from(languagePercentage).forEach(elem => elem.innerHTML = 0 + '%');
+    // Array.from(languageLevelBar).forEach(elem => elem.style.width = 0);
+    // Array.from(languageLevelBarOuter).forEach(elem => elem.style.width = 0);
+    // Array.from(languageHeader).forEach(elem => elem.className = 'language_header');
+    // Array.from(languageLevelTitle).forEach(elem => elem.classList.remove('language_level_title_animation'));
+    // tabContent[2].style.height = 0;
 }
 
 let languageList = ['Russian', 'English'];
