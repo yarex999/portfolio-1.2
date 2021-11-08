@@ -31,7 +31,7 @@ let skillTitles = document.querySelectorAll('.skill_img_title');
 const chartBar = document.querySelectorAll('.barChart_inner');
 let chartPercentages = document.querySelectorAll('.skill_chart_percentage');
 let skillDescriptions = document.querySelectorAll('.skill_description_inner');
-let percentage = [80, 75, 70, 65, 50, 25, 60, 20, 45, 35, 90];
+let percentage = [80, 75, 70, 60, 65, 50, 55, 65, 40, 25, 60, 20, 45, 35, 90];
 
 
 // project`s tab components
@@ -769,7 +769,7 @@ function tab3Close() {
     // Array.from(languageLevelBarOuter).forEach(elem => elem.style.width = 0);
     // Array.from(languageHeader).forEach(elem => elem.className = 'language_header');
     // Array.from(languageLevelTitle).forEach(elem => elem.classList.remove('language_level_title_animation'));
-    // tabContent[2].style.height = 0;
+    tabContent[2].style.height = 0;
 }
 
 let languageList = ['Russian', 'English'];
