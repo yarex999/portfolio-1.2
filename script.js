@@ -368,7 +368,7 @@ function tab1() {
                 gsap.to('.offer_text',{
                     duration: 5,
                     text: {
-                        value: "Highly motivated front-end developer able to build responsible user-friendly websites and web apps using mobile-first approach. Eager to become a full-stack developer.",
+                        value: "Highly motivated frontend developer able to build responsive, adaptive and interactive web apps, websites and web pages connected to server's API.",
                         delimiter: ''
                     },
                     delay: 0.5
